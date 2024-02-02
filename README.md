@@ -3,6 +3,36 @@ This script relies on the `numpy`, `pandas`, and `nba_api` packages. `nba_api` w
 
 # Running this Script
 
+The script is run in terminal as:
+
+> python lineup_scrape.py -i "included players" -e "excluded players" -t TEAM -m minimum
+
+For `included` and `excluded players`, you must include them as a comma separated list, with the name in F. Last Name convention. These fields are optional, so no inputs will simply pull every lineup on NBA.com. The `team` field will specify lineups from only a specific team. By default, having no team will simply pull every lineup with the specified restrictions. Finally `minimum` will filter lineups to a minimum minutes played. The default value is 0, which will give ALL lineups
+
+**Example 1:** To see every lineup with Joel Embiid and Tyrese Maxey, and without Nicolas Batum, you would enter:
+ 
+`python lineup_scrape.py -i "J. Embiid, T. Maxey" -e "N. Batum`
+and get the results:
+```
+  GROUP_NAME TEAM_ABBREVIATION    MIN    POS    PFOR     PAG  OFF_RATING  DEF_RATING  NET_RATING    PACE
+ -1      Total               PHI  456.0  958.0  1083.0  1057.0       113.0       110.3         2.7  100.84
+ Full results saved to lineup_results.csv
+```
+
+The full results, which include all the lineups with Embiid and Maxey and no Batum will be saved to the file `lineup_results.csv`.
+
+**Example 2:** To see every Raptors lineup that played at least 10 minutes together, including OG Anunoby and Scottie Barnes, and without Pascal Siakam and Gradey Dick,  you would enter:
+
+`python lineup_scrape.py -i "O. Anunoby, S. Barnes" -e "P. Siakam, G. Dick' -t TOR -m 10` and get the results:
+
+```
+GROUP_NAME TEAM_ABBREVIATION    MIN    POS   PFOR    PAG  OFF_RATING  DEF_RATING  NET_RATING   PACE
+-1      Total               TOR  145.5  298.0  319.0  296.0       107.0        99.3         7.7  98.31
+Full results saved to lineup_results.csv
+```
+
+Note there may be some unexepcted/conflicting outputs, check the **Limitations** section for more.
+
 # Notes
 Offensive Rating and Defensive Rating are calculated differently on websites. This script relies on NBA.com methodology which has tracking data and uses points scored for/against per 100 possessions.
 
