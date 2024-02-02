@@ -11,7 +11,7 @@ For `included` and `excluded players`, you must include them as a comma separate
 
 **Example 1:** To see every lineup with Joel Embiid and Tyrese Maxey, and without Nicolas Batum, you would enter:
  
-`python lineup_scrape.py -i "J. Embiid, T. Maxey" -e "N. Batum`
+`python lineup_scrape.py -i "J. Embiid, T. Maxey" -e "N. Batum"`
 and get the results:
 ```
   GROUP_NAME TEAM_ABBREVIATION    MIN    POS    PFOR     PAG  OFF_RATING  DEF_RATING  NET_RATING    PACE
@@ -23,7 +23,7 @@ The full results, which include all the lineups with Embiid and Maxey and no Bat
 
 **Example 2:** To see every Raptors lineup that played at least 10 minutes together, including OG Anunoby and Scottie Barnes, and without Pascal Siakam and Gradey Dick,  you would enter:
 
-`python lineup_scrape.py -i "O. Anunoby, S. Barnes" -e "P. Siakam, G. Dick' -t TOR -m 10` and get the results:
+`python lineup_scrape.py -i "O. Anunoby, S. Barnes" -e "P. Siakam, G. Dick" -t TOR -m 10` and get the results:
 
 ```
 GROUP_NAME TEAM_ABBREVIATION    MIN    POS   PFOR    PAG  OFF_RATING  DEF_RATING  NET_RATING   PACE
